@@ -1,5 +1,5 @@
 var B = [], SC = {sud:0, nord:0}, J = "SUD", FI = false, NJ = {sud:"Joueur SUD", nord:"Joueur NORD"};
-const ROUTE = [0, 1, 2, 3, 4, 5, 6, 13, 12, 11, 10, 9, 8, 7];
+const ROUTE = [7, 8, 9, 10, 11, 12, 13, 6, 5, 4, 3, 2, 1, 0];
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-regles").onclick = () => {
@@ -59,18 +59,18 @@ function jouer(idx){
   if(caVideraitTout(idx)) return setMsg("🚫 Interdit : Vous allez affamer l'adversaire !");
 
   let n = B[idx]; B[idx] = 0; let p = idx;
-  for(let i=0; i<n; i++) { p = suiv(p); if(p === idx) p = suiv(p); B[p]++; }
+  for(let i=0; i<n; i++) { p = suiv(p); console.log("Bille déposée dans :", p);if(p === idx) p = suiv(p); B[p]++; }
   
   let t = 0;
   while(estAdv(p, J) && B[p] >= 2 && B[p] <= 4) { SC[J.toLowerCase()] += B[p]; t += B[p]; B[p] = 0; p = prec(p); }
   majSC();
-
+  c
   if(chkF()) { draw(); return; }
   J = J === "SUD" ? "NORD" : "SUD";
   majI(); draw();
   setMsg(t > 0 ? `✅ Prise de ${t} billes ! À toi, ${J === "SUD" ? NJ.sud : NJ.nord}.` : `C'est au tour de ${J === "SUD" ? NJ.sud : NJ.nord}.`);
 }
-
+console.log("Case jouée :", idx);
 function coupNourrit(idx) {
   let bc = B.slice(), p = idx; bc[p] = 0;
   for(let i=0; i<B[idx]; i++) { p = suiv(p); if(p === idx) p = suiv(p); bc[p]++; }
