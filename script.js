@@ -20,11 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const suiv = p => {
   let idx = ROUTE.indexOf(p);
-  return ROUTE[(idx + 1) % 1];
-  for(let i=0;i<14;i++){
-    console.log(i,"->",suiv(i));
-  }
-   
+  return ROUTE[(idx + 1) % ROUTE.length];
 };
 
 const prec = p => {
