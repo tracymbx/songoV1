@@ -1,5 +1,5 @@
 var B = [], SC = {sud:0, nord:0}, J = "SUD", FI = false, NJ = {sud:"Joueur SUD", nord:"Joueur NORD"};
-const ROUTE = [13, 12, 11, 10, 9, 8, 7, 0, 1, 2, 3, 4, 5, 6];
+const ROUTE = [7, 8, 9, 10, 11, 12, 13, 6, 5, 4, 3, 2, 1, 0];
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-regles").onclick = () => {
