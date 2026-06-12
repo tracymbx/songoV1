@@ -22,7 +22,8 @@ const suiv = p => {
   let idx = ROUTE.indexOf(p);
   return ROUTE[(idx + 1) % ROUTE.length];
 };
-
+console.log("suiv(13) =", suiv(13));
+console.log("suiv(0) =", suiv(0));
 const prec = p => {
   let idx = ROUTE.indexOf(p);
   return ROUTE[(idx - 1 + 14) % 14];
