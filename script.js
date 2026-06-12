@@ -71,6 +71,17 @@ function jouer(idx){
   setMsg(t > 0 ? `✅ Prise de ${t} billes ! À toi, ${J === "SUD" ? NJ.sud : NJ.nord}.` : `C'est au tour de ${J === "SUD" ? NJ.sud : NJ.nord}.`);
 }
 console.log("Case jouée :", idx);
+
+let n = B[idx];
+B[idx] = 0;
+let p = idx;
+
+for(let i=0; i<n; i++) {
+    p = suiv(p);
+    console.log("Dépôt dans :", p);
+    if(p === idx) p = suiv(p);
+    B[p]++;
+};
 function coupNourrit(idx) {
   let bc = B.slice(), p = idx; bc[p] = 0;
   for(let i=0; i<B[idx]; i++) { p = suiv(p); if(p === idx) p = suiv(p); bc[p]++; }
