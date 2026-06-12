@@ -1,5 +1,5 @@
 var B = [], SC = {sud:0, nord:0}, J = "SUD", FI = false, NJ = {sud:"Joueur SUD", nord:"Joueur NORD"};
-const ROUTE = [7, 8, 9, 10, 11, 12, 13, 6, 5, 4, 3, 2, 1, 0];
+const ROUTE = [0, 1, 2, 3, 4, 5, 6, 13, 12, 11, 10, 9, 8, 7];
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-regles").onclick = () => {
@@ -20,7 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const suiv = p => {
   let idx = ROUTE.indexOf(p);
-  return ROUTE[(idx + 1) % 14];
+  return ROUTE[(idx + 1) % 1];
+  for(let i=0;i<14;i++){
+    console.log(i,"->",suiv(i));
+  }
+   
 };
 
 const prec = p => {
