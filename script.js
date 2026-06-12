@@ -1,5 +1,5 @@
 var B = [], SC = {sud:0, nord:0}, J = "SUD", FI = false, NJ = {sud:"Joueur SUD", nord:"Joueur NORD"};
-const ROUTE = [7, 8, 9, 10, 11, 12, 13, 6, 5, 4, 3, 2, 1, 0];
+const ROUTE = [13, 12, 11, 10, 9, 8, 7, 0, 1, 2, 3, 4, 5, 6];
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-regles").onclick = () => {
@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-quitter-fin").onclick = () => { ret(); cF(); };
 });
 
-const suiv = p => ROUTE[(ROUTE.indexOf(p) - 1 + 14) % 14];
-const prec = p => ROUTE[(ROUTE.indexOf(p) + 1) % 14];
+const suiv = p => ROUTE[(ROUTE.indexOf(p) + 1) % 14];
+const prec = p => ROUTE[(ROUTE.indexOf(p) - 1 + 14) % 14];
 const estAdv = (p, j) => j === "SUD" ? (p >= 0 && p <= 6) : (p >= 7 && p <= 13);
 const cVide = j => B.slice(j === "NORD" ? 0 : 7, j === "NORD" ? 7 : 14).every(v => v === 0);
 const cF = () => document.getElementById("fin").classList.remove("v");
